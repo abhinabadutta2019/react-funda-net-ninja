@@ -19,6 +19,15 @@ const Home = () => {
     <div className="home">
       {/* props */}
       <BlogList blogs={blogs} title="All Blogs"></BlogList>
+
+      <hr />
+      {/*  */}
+      <BlogList
+        blogs={blogs.filter(function (oneblog) {
+          return oneblog.author == "mario";
+        })}
+        title="Mario's own Blogs"
+      ></BlogList>
     </div>
   );
 };
