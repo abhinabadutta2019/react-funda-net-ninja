@@ -14,19 +14,19 @@ const Home = () => {
     },
     { title: "Sun is shining", body: "lorem ipsum..3", author: "mario", id: 3 },
   ]);
+  //
+  const handleDelete = (id) => {
+    const newBlogs = blogs.filter((oneblog) => oneblog.id !== id);
+    setBlogs(newBlogs);
+  };
 
   return (
     <div className="home">
       {/* props */}
-      <BlogList blogs={blogs} title="All Blogs"></BlogList>
-
-      <hr />
-      {/*  */}
       <BlogList
-        blogs={blogs.filter(function (oneblog) {
-          return oneblog.author == "mario";
-        })}
-        title="Mario's own Blogs"
+        blogs={blogs}
+        title="All Blogs"
+        handleDelete={handleDelete}
       ></BlogList>
     </div>
   );

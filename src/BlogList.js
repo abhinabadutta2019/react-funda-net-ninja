@@ -1,24 +1,27 @@
-const BlogList = (props) => {
+const BlogList = ({ blogs, title, handleDelete }) => {
   //
-  const blogs = props.blogs;
-  const title = props.title;
+
   //
   return (
     <div className="blog-list">
       <h2>{title}</h2>
       <br />
-      {/*  */}
-      {blogs.map(function (oneblog) {
-        //--return --ei return statement chara fronend e dekhabe na
-        return (
-          <div className="blog-preview" key={oneblog.id}>
-            <h2>{oneblog.title}</h2>
-            <p>{oneblog.author}</p>
+      {blogs.map((oneblog) => (
+        <div className="blog-preview" key={oneblog.id}>
+          <h2>{oneblog.title}</h2>
 
-            <br />
-          </div>
-        );
-      })}
+          <p>Written by {oneblog.author}</p>
+
+          {/*delete button   */}
+          <button
+            onClick={function () {
+              handleDelete(oneblog.id);
+            }}
+          >
+            delete blog
+          </button>
+        </div>
+      ))}
     </div>
   );
 };
