@@ -3,32 +3,30 @@ import { useState } from "react";
 
 const Home = () => {
   //
-  //   let name = "mario";
-  //
-  const [name, setName] = useState("mario");
-  //
-  const [age, setAge] = useState(100);
-
-  const handleClick = () => {
-    //
-    setName("lungi");
-    //
-    setAge(55);
-    //
-    console.log(name, "name");
-  };
-  //
-  //
+  const [blogs, setBlogs] = useState([
+    { title: "My new site", body: "lorem ipsum..1", author: "mario", id: 1 },
+    {
+      title: "welcome to south",
+      body: "lorem ipsum..2",
+      author: "yoshi",
+      id: 2,
+    },
+    { title: "Sun is shining", body: "lorem ipsum..3", author: "mario", id: 3 },
+  ]);
 
   return (
-    <div className="Home">
-      <h2>Homepage</h2>
-      {/*  */}
-      <p>{name}</p>
-      <p>{age}</p>
-      {/*  */}
-      <button onClick={handleClick}>Click me</button>
-      {/*  */}
+    <div className="home">
+      {blogs.map(function (oneblog) {
+        //--return --ei return statement chara fronend e dekhabe na
+        return (
+          <div className="blog-preview" key={oneblog.id}>
+            <h2>{oneblog.title}</h2>
+            <p>{oneblog.author}</p>
+
+            <br />
+          </div>
+        );
+      })}
     </div>
   );
 };
