@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BlogList from "./BlogList";
 //
 
 const Home = () => {
@@ -16,17 +17,8 @@ const Home = () => {
 
   return (
     <div className="home">
-      {blogs.map(function (oneblog) {
-        //--return --ei return statement chara fronend e dekhabe na
-        return (
-          <div className="blog-preview" key={oneblog.id}>
-            <h2>{oneblog.title}</h2>
-            <p>{oneblog.author}</p>
-
-            <br />
-          </div>
-        );
-      })}
+      {/* props */}
+      <BlogList blogs={blogs} title="All Blogs"></BlogList>
     </div>
   );
 };
