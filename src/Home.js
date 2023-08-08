@@ -1,3 +1,4 @@
+//
 import { useState } from "react";
 import BlogList from "./BlogList";
 //
@@ -5,31 +6,49 @@ import BlogList from "./BlogList";
 const Home = () => {
   //
   const [blogs, setBlogs] = useState([
-    { title: "My new site", body: "lorem ipsum..1", author: "mario", id: 1 },
+    //
+    { title: "My new website", body: "lorem ipsum...", author: "mario", id: 1 },
+    { title: "Welcome party!", body: "lorem ipsum...", author: "yoshi", id: 2 },
     {
-      title: "welcome to south",
-      body: "lorem ipsum..2",
-      author: "yoshi",
-      id: 2,
+      title: "Web dev top tips",
+      body: "lorem ipsum...",
+      author: "mario",
+      id: 3,
     },
-    { title: "Sun is shining", body: "lorem ipsum..3", author: "mario", id: 3 },
   ]);
   //
-  const handleDelete = (id) => {
-    const newBlogs = blogs.filter((oneblog) => oneblog.id !== id);
+  const handleDelete = function (id) {
+    //
+    const newBlogs = blogs.filter(
+      //
+
+      function (oneBlog) {
+        //
+        if (oneBlog.id !== id) {
+          return oneBlog;
+        }
+
+        // return oneBlog.id !== id;
+      }
+      //
+    );
+    //
+    console.log(newBlogs);
+    //
     setBlogs(newBlogs);
   };
-
+  //
   return (
     <div className="home">
-      {/* props */}
       <BlogList
         blogs={blogs}
-        title="All Blogs"
+        title="All blogs .."
         handleDelete={handleDelete}
       ></BlogList>
     </div>
   );
 };
+
+//
 
 export default Home;
