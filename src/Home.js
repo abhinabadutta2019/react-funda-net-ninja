@@ -17,6 +17,7 @@ const Home = () => {
     },
   ]);
   //
+  //
   const handleDelete = function (id) {
     //
     const newBlogs = blogs.filter(
