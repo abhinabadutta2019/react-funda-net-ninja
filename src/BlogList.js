@@ -1,8 +1,10 @@
 const BlogList = ({ blogs, title, handleDelete }) => {
-  //
+  // props destrucred vs props variable - video 11( end)
+
   // const blogs = props.blogs;
 
   // const title = props.title;
+  // const handleDelete = props.handleDelete;
   return (
     //
     <div className="blog-list">
