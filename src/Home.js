@@ -17,27 +17,30 @@ const Home = () => {
     },
   ]);
   //
+  // for loop
+
+  // const handleDelete = (id) => {
+  //   const newBlogs = [];
+  //   for (let i = 0; i < blogs.length; i++) {
+  //     if (blogs[i].id !== id) {
+  //       newBlogs.push(blogs[i]);
+  //     }
+  //   }
+  //   setBlogs(newBlogs);
+  // };
   //
-  const handleDelete = function (id) {
-    //
-    const newBlogs = blogs.filter(
-      //
-
-      function (oneBlog) {
-        //
-        if (oneBlog.id !== id) {
-          return oneBlog;
-        }
-
-        // return oneBlog.id !== id;
+  // foreach
+  //
+  const handleDelete = (id) => {
+    const newBlogs = [];
+    blogs.forEach((blog) => {
+      if (blog.id !== id) {
+        newBlogs.push(blog);
       }
-      //
-    );
-    //
-    console.log(newBlogs);
-    //
+    });
     setBlogs(newBlogs);
   };
+
   //
   return (
     <div className="home">
