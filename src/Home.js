@@ -2,10 +2,12 @@ import { useState } from "react";
 
 const Home = () => {
   //
-  let name = "Akshay";
+
+  const [name, setName] = useState("Akshay");
   //
   const clickEventFunc = function () {
-    name = "Abir";
+    //
+    setName("Abir");
     //
     console.log(name, "name");
   };
