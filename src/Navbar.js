@@ -1,16 +1,19 @@
 //--sfc -- stateless functional component
 
 const Navbar = () => {
+  //
+
+  const Home = <a href="/">Home</a>;
+  const CreateBlog = <a href="/create">New Blog</a>;
+  //
+
+  //
   return (
-    <nav className="navbar">
-      <h1>The Abhinaba React blog</h1>
-      {/*  */}
-      <div className="links">
-        {/*  */}
-        <a href="/">Home</a>
-        <a href="/create">New blog</a>
-      </div>
-    </nav>
+    <div className="Navbar">
+      {Home}
+      <br />
+      {CreateBlog}
+    </div>
   );
 };
 
