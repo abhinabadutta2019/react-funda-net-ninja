@@ -1,21 +1,13 @@
+import { useState } from "react";
+
 const Home = () => {
   //
-
-  // const homeTitle = "Coming from home component";
+  let name = "Akshay";
   //
   const clickEventFunc = function () {
+    name = "Abir";
     //
-    console.log("Hello in console");
-  };
-  //
-  const clicktWithParaFunc = function (name) {
-    //
-    console.log(`Hi ${name}`);
-  };
-  //
-  const clickWithReactEvent = function (e) {
-    //
-    console.log("this is", e.target);
+    console.log(name, "name");
   };
 
   //
@@ -23,24 +15,10 @@ const Home = () => {
     //
     <div className="Home">
       {/*  */}
-      {/* <h3>{homeTitle}</h3> */}
-      <button onClick={clickEventFunc}>click here</button>
+      <p>your name :{name}</p>
+
       {/*  */}
-      <button
-        onClick={() => {
-          return clicktWithParaFunc("Rahul bhai");
-        }}
-      >
-        with parameter
-      </button>
-      {/*  */}
-      <button
-        onClick={(e) => {
-          return clickWithReactEvent(e);
-        }}
-      >
-        with react event
-      </button>
+      <button onClick={clickEventFunc}>Click here</button>
     </div>
   );
 };
