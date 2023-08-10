@@ -1,7 +1,7 @@
-const MyArray = (props) => {
+const MyArray = ({ myArray, title, onClickDelete }) => {
   //
-  const myArray = props.myArray;
-  const title = props.title;
+  // const myArray = props.myArray;
+  // const title = props.title;
   //
   // console.log(myArray);
 
@@ -17,6 +17,14 @@ const MyArray = (props) => {
               {/*  */}
               <h4>{oneItem.title}</h4>
               <p>written by : {oneItem.author}</p>
+              {/*  */}
+              <button
+                onClick={function () {
+                  onClickDelete(oneItem.id);
+                }}
+              >
+                Delete blog
+              </button>
             </div>
           );
         })}

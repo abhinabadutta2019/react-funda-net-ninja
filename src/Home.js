@@ -14,21 +14,23 @@ const Home = () => {
       id: 3,
     },
   ]);
-
+  //
+  const onClickDelete = function (id) {
+    // console.log("Hi1");
+    const finalArray = myArray.filter((oneItem) => {
+      return oneItem.id != id;
+    });
+    //
+    setMyArray(finalArray);
+  };
   //
   return (
     //
     <div className="Home">
-      <MyArray myArray={myArray} title="All items title" />
-      {/*  */}
-      {/* <MyArray myArray={myArray} /> */}
-      {/*  */}
-
       <MyArray
-        myArray={myArray.filter((oneItem) => {
-          return oneItem.author == "mario";
-        })}
-        title="Mario Title"
+        myArray={myArray}
+        title="All items title"
+        onClickDelete={onClickDelete}
       />
     </div>
   );
