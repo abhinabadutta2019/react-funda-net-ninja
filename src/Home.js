@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BlogList from "./BlogList";
+// import BlogList from "./BlogList";
 
 const Home = () => {
   //
@@ -16,26 +16,41 @@ const Home = () => {
   ]);
   //
 
-  // eta likte giye onnekbar error // problem holo
-  ////////////////////////////////////////
-
-  const deleteButtonFunc = function (id) {
-    const remainingBlogs = blogList.filter(function (oneItem) {
-      return oneItem.id != id;
-    });
+  const myList = blogList.map(function (oneItem) {
     //
-    setBlogList(remainingBlogs);
-  };
+    return (
+      <div key={oneItem.id}>
+        <h4>{oneItem.title}</h4>
+        <p>{oneItem.author}</p>
+      </div>
+    );
+  });
+
+  //
+  // const marioList = blogList.map(function (oneItem) {
+  //   //
+
+  //   if (oneItem.author == "mario") {
+  //     //
+  //     return (
+  //       <div key={oneItem.id}>
+  //         <h4>{oneItem.title}</h4>
+  //         <p>{oneItem.author}</p>
+  //       </div>
+  //     );
+  //   }
+  // });
 
   //
   return (
     //
     <div>
-      <div className="Home">Hi</div>
-      {/* passing props to child component */}
+      <h3>All blogs</h3>
+      <div>{myList}</div>
+      {/*  */}
 
-      <h2>All items</h2>
-      <BlogList blogList={blogList} deleteButtonFunc={deleteButtonFunc} />
+      {/* <h3>Mario</h3>
+      <div>{marioList}</div> */}
     </div>
   );
 };
