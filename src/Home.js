@@ -1,10 +1,10 @@
 import { useState } from "react";
-import MyArray from "./BlogList";
+import BlogList from "./BlogList";
 
 const Home = () => {
   //
 
-  const [myArray, setMyArray] = useState([
+  const [blogList, setBlogList] = useState([
     { title: "My new website", body: "lorem ipsum...", author: "mario", id: 1 },
     { title: "Welcome party!", body: "lorem ipsum...", author: "yoshi", id: 2 },
     {
@@ -15,23 +15,27 @@ const Home = () => {
     },
   ]);
   //
-  const onClickDelete = function (id) {
-    // console.log("Hi1");
-    const finalArray = myArray.filter((oneItem) => {
+
+  // eta likte giye onnekbar error // problem holo
+  ////////////////////////////////////////
+
+  const deleteButtonFunc = function (id) {
+    const remainingBlogs = blogList.filter(function (oneItem) {
       return oneItem.id != id;
     });
     //
-    setMyArray(finalArray);
+    setBlogList(remainingBlogs);
   };
+
   //
   return (
     //
-    <div className="Home">
-      <MyArray
-        myArray={myArray}
-        title="All items title"
-        onClickDelete={onClickDelete}
-      />
+    <div>
+      <div className="Home">Hi</div>
+      {/* passing props to child component */}
+
+      <h2>All items</h2>
+      <BlogList blogList={blogList} deleteButtonFunc={deleteButtonFunc} />
     </div>
   );
 };
