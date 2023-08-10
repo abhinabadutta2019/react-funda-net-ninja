@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MyArray from "./BlogList";
 
 const Home = () => {
   //
@@ -18,17 +19,17 @@ const Home = () => {
   return (
     //
     <div className="Home">
-      <ul>
-        {myArray.map(function (oneItem) {
-          return (
-            <div key={oneItem.id}>
-              {/*  */}
-              <h4>{oneItem.title}</h4>
-              <p>written by : {oneItem.author}</p>
-            </div>
-          );
+      <MyArray myArray={myArray} title="All items title" />
+      {/*  */}
+      {/* <MyArray myArray={myArray} /> */}
+      {/*  */}
+
+      <MyArray
+        myArray={myArray.filter((oneItem) => {
+          return oneItem.author == "mario";
         })}
-      </ul>
+        title="Mario Title"
+      />
     </div>
   );
 };

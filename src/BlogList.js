@@ -1,15 +1,28 @@
-const BlogList = ({ blogs, title }) => {
+const MyArray = (props) => {
+  //
+  const myArray = props.myArray;
+  const title = props.title;
+  //
+  // console.log(myArray);
+
+  //
   return (
-    <div className="blog-list">
-      <h2>{title}</h2>
-      {blogs.map((blog) => (
-        <div className="blog-preview" key={blog.id}>
-          <h2>{blog.title}</h2>
-          <p>Written by {blog.author}</p>
-        </div>
-      ))}
+    //
+    <div className="myArray-list">
+      <h1>{title}</h1>
+      <ul>
+        {myArray.map(function (oneItem) {
+          return (
+            <div key={oneItem.id}>
+              {/*  */}
+              <h4>{oneItem.title}</h4>
+              <p>written by : {oneItem.author}</p>
+            </div>
+          );
+        })}
+      </ul>
     </div>
   );
 };
 
-export default BlogList;
+export default MyArray;
