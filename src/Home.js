@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import BlogList from "./BlogList";
+import BlogList from "./BlogList";
 
 const Home = () => {
   //
@@ -15,40 +15,26 @@ const Home = () => {
     },
   ]);
   //
-
-  const myList = blogList.map(function (oneItem) {
+  const deleteItemFunc = function (id) {
     //
-    return (
-      <div key={oneItem.id}>
-        <h4>{oneItem.title}</h4>
-        <p>{oneItem.author}</p>
-      </div>
-    );
-  });
+    const afterDeletedList = blogList.filter((oneItem) => {
+      //
+      return oneItem.id != id;
+    });
 
-  //
-  // const marioList = blogList.map(function (oneItem) {
-  //   //
-
-  //   if (oneItem.author == "mario") {
-  //     //
-  //     return (
-  //       <div key={oneItem.id}>
-  //         <h4>{oneItem.title}</h4>
-  //         <p>{oneItem.author}</p>
-  //       </div>
-  //     );
-  //   }
-  // });
+    //
+    setBlogList(afterDeletedList);
+    //
+  };
 
   //
   return (
     //
     <div>
       <h3>All blogs</h3>
-      <div>{myList}</div>
+      {/* <div>BlogList{(blogList = "blogList")}</div> */}
       {/*  */}
-
+      <BlogList allLists={blogList} deleteItemFunc={deleteItemFunc} />
       {/* <h3>Mario</h3>
       <div>{marioList}</div> */}
     </div>
