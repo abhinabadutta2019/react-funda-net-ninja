@@ -1,5 +1,7 @@
 const Bloglist = ({ allLists, deleteItemFunc }) => {
   //
+
+  //
   const myList = allLists.map(function (oneItem) {
     //
     return (

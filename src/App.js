@@ -1,21 +1,39 @@
-import Navbar from "./Navbar";
-import Home from "./Home";
+import App2 from "./App2";
 
-function App() {
+const App = () => {
   //
-
+  // const myText = "India";
+  const myArr = [5, 6, 9, 7];
   //
-
+  // const endArr = () => {
+  //
+  // const mapValue = myArr.map((oneItem) => {
+  //   //
+  //   const endValue = oneItem * 2;
+  //   return <div> {endValue}</div>;
+  // });
+  //
+  //   return mapValue;
+  // };
+  //
   return (
-    <div className="App">
-      <h1>The app component</h1>
-      {/* importing nav component */}
-      <Navbar />
-      <br />
-      {/*importing home component   */}
-      <Home />
+    <div>
+      <p>India</p>
+      {/*  */}
+
+      {/* {myArr.map((oneItem) => {
+        //
+
+        return <p>{oneItem}</p>;
+        // return oneItem;
+      })} */}
+
+      {/*  */}
+
+      <App2 myArr={myArr} myArr3={myArr} />
+      {/*  */}
     </div>
   );
-}
+};
 
 export default App;
