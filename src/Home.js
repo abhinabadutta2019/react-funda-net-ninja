@@ -1,31 +1,15 @@
 import { useState } from "react";
-import BlogList from "./BlogList";
 
-function Home() {
-  //
-  const [blogList, setBlogList] = useState([
-    { title: "My new website", body: "lorem ipsum...", author: "mario", id: 1 },
-    { title: "Welcome party!", body: "lorem ipsum...", author: "yoshi", id: 2 },
-    {
-      title: "Web dev top tips",
-      body: "lorem ipsum...",
-      author: "mario",
-      id: 3,
-    },
-  ]);
-  //
-  const deleteButtonFunc = (id) => {
-    //
-    const afterDeleteArray = blogList.filter((oneItem) => oneItem.id != id);
-    //
-    setBlogList(afterDeleteArray);
-    //
-    return setBlogList;
+const Home = () => {
+  const handleClick = () => {
+    console.log("hello abvi");
   };
-
-  // console.log(blogList, "blogList");
-
-  return <BlogList blogList={blogList} deleteButtonFunc={deleteButtonFunc} />;
-}
+  return (
+    <div className="home">
+      <h2>Homepage</h2>
+      <button onClick={handleClick}>Click me</button>
+    </div>
+  );
+};
 
 export default Home;
