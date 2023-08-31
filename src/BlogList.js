@@ -24,4 +24,5 @@ function BlogList({ blogList, title, deleteButtonFunc }) {
   );
 }
 
+//
 export default BlogList;
