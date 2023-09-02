@@ -7,13 +7,6 @@ const Home = () => {
   //
 
   //
-  const deleteButtonFunc = (id) => {
-    const newBlogs = blogs.filter((blog) => {
-      return blog.id != id;
-    });
-    setBlogs(newBlogs);
-  };
-  //
   useEffect(() => {
     fetch("http://localhost:8000/blogs")
       .then((res) => {
@@ -30,13 +23,7 @@ const Home = () => {
     <div className="home">
       <h2>Homepage</h2>
 
-      {blogs && (
-        <BlogList
-          blogList={blogs}
-          title="All blogs"
-          deleteButtonFunc={deleteButtonFunc}
-        />
-      )}
+      {blogs && <BlogList blogList={blogs} title="All blogs" />}
     </div>
   );
 };
