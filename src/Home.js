@@ -7,18 +7,34 @@ const Home = () => {
   //
   const [isPending, setIsPending] = useState(true);
   //
+  const [error, setError] = useState(null);
+  //
   useEffect(() => {
     //
     setTimeout(() => {
       //
       fetch("http://localhost:8000/blogs")
         .then((res) => {
+          // console.log(res);
+          //
+          if (!res.ok) {
+            throw Error("could not fetch data for that resource");
+          }
+          //
           return res.json();
         })
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           setBlogs(data);
           setIsPending(false);
+          //
+          setError(null);
+        })
+        .catch((err) => {
+          // console.log(err.message);
+          setIsPending(false);
+          //
+          setError(err.message);
         });
     }, 1000);
     //
@@ -28,6 +44,9 @@ const Home = () => {
   return (
     <div className="home">
       <h2>Homepage</h2>
+
+      {error && <div>{error}</div>}
+      {/*  */}
 
       {isPending && <div>Loading ... </div>}
 
