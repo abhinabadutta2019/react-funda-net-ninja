@@ -10,12 +10,12 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
   //
   useEffect(() => {
-    //
-
+    //-it is used to stop - unwanted fetch call-- pause/ abort the fetch
+    const abortCont = new AbortController();
     //
     setTimeout(() => {
       //
-      fetch(url)
+      fetch(url, { signal: abortCont.signal })
         .then((res) => {
           // console.log(res);
           //
@@ -34,11 +34,21 @@ const useFetch = (url) => {
         })
         .catch((err) => {
           // console.log(err.message);
-          setIsPending(false);
           //
-          setError(err.message);
+          if (err.name === "AbortError") {
+            console.log("fetch aborted");
+          } else {
+            setIsPending(false);
+            setError(err.message);
+          }
         });
     }, 1000);
+    //
+    return () => {
+      // console.log("clenup from h>>");
+      //
+      abortCont.abort();
+    };
     //
   }, [url]);
   //
