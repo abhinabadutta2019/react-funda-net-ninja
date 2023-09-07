@@ -1,11 +1,7 @@
 import Navbar from "./Navbar";
 import Home from "./Home";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Create from "./Create";
 
 function App() {
   //
@@ -20,12 +16,13 @@ function App() {
         {/* importing nav component */}
         <Navbar />
         <br />
-        <Switch>
-          <Route path="/">
-            {/* component below */}
-            <Home />
-          </Route>
-        </Switch>
+        {/* <Switch> is older syntax*/}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/*  */}
+          <Route path="/create" element={<Create />} />
+        </Routes>
+        {/* </Switch> */}
       </div>
     </Router>
   );
