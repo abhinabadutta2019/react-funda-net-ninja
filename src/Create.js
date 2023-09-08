@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   //
@@ -8,8 +9,8 @@ const Create = () => {
   // this is for loading-- when adding a blog / making the post request
   //it is false-- as - page jokhon shurute render hocche tohon - eta asbenaa, jokhon form submit hobe tokhon asbe
   const [isPending, setIsPending] = useState(false);
-  //
-
+  //for redirection
+  const navigate = useNavigate();
   //
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,6 +25,8 @@ const Create = () => {
     }).then(() => {
       console.log("new blog added");
       setIsPending(false);
+      //redirection
+      navigate("/");
     });
   };
   //
