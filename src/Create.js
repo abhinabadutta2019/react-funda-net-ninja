@@ -5,11 +5,26 @@ const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("mario");
+  // this is for loading-- when adding a blog / making the post request
+  //it is false-- as - page jokhon shurute render hocche tohon - eta asbenaa, jokhon form submit hobe tokhon asbe
+  const [isPending, setIsPending] = useState(false);
+  //
+
   //
   const handleSubmit = (e) => {
     e.preventDefault();
     const blog = { title, body, author };
-    console.log(blog);
+    //
+    setIsPending(true);
+    //--writing for the post request-- of form data
+    fetch("http://localhost:8000/blogs", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(blog),
+    }).then(() => {
+      console.log("new blog added");
+      setIsPending(false);
+    });
   };
   //
   return (
@@ -39,7 +54,8 @@ const Create = () => {
           <option value="yoshi">yoshi</option>
         </select>
         <br />
-        <button>Add Blog</button>
+        {!isPending && <button>Add Blog</button>}
+        {!isPending && <button disabled>Adding blog...</button>}
       </form>
     </div>
   );
